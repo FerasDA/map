@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Router } from '@reach/router'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navigation from './Navigation';
+import Home from './Home';
+import Flights from './Flights';
+import CountriesVisited from './CountriesVisited';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Navigation />
+        <Router>
+          <Home path="/" />
+          <Flights path="/flights" />
+          <CountriesVisited path="/countries-visited" />
+        </Router>
+
+      </div>
+    );
+  }
 }
 
 export default App;
